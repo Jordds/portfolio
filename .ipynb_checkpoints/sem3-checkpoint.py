@@ -27,7 +27,7 @@ def Sem3():
         
         Think of article prices changing over time, with window functions we can group all articles with the same article number together and analyse the price increase and decrease over time.    
         """)
-        st.image("OneDrive - Office 365 Fontys/School/portfolio/window function example.png", caption="Window function example")
+        st.image("https://github.com/Jordds/portfolio/blob/main/window%20function%20example.png?raw=true", caption="Window function example")
 #%% Power BI
     with st.expander("Power BI"):
         st.write("This was my first experience with Power BI. During the semster we learned about dimensional model, DAX and building visuals in Power BI. This knowledge was applied in our semester project, for which we build a Like4Like dashboard comparing clothing stores accross the world, with mulitple filter options for the end user.")
