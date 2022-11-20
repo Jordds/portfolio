@@ -39,7 +39,7 @@ def Sem3():
 #%% Power BI
     with st.expander("Power BI"):
         st.write("This was my first experience with Power BI. During the semster we learned about dimensional model, DAX and building visuals in Power BI. This knowledge was applied in our semester project, for which we build a Like4Like dashboard comparing clothing stores accross the world, with mulitple filter options for the end user.")
-        st.image("OneDrive/Documents/GitHub/portfolio/powerBISem3.png", caption="Plainwear Like4Like dashboard")
+        st.image("https://github.com/Jordds/portfolio/blob/main/powerBISem3.png?raw=true", caption="Plainwear Like4Like dashboard")
         st.markdown("""
         This is a screenshot of the dashboard I came up with for my semester project. Ib the background, a Like4Like classification was made, so the stores shown would be an equal comparison. 
         
@@ -52,5 +52,5 @@ def Sem3():
         
         At the end of the semester we had a personal project that required to source our own data, clean and combine datasets and lastly apply statics and regression on that cleaned data. The below picture shows a plot I made in my personal semester project regarding regression: 
         """)
-        st.image("OneDrive/Documents/GitHub/portfolio/regression.png", caption="multiple regression plot")
+        st.image("https://github.com/Jordds/portfolio/blob/main/powerBISem3.png?raw=true", caption="multiple regression plot")
     
