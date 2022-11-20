@@ -5,7 +5,7 @@ import plotly.express as px
 import streamlit as st
 import pydeck as pdk
 from datetime import datetime
-from Laps import telemetry
+from Laps import telemetry, corners, spainMap
 
 
 def DDBL():
@@ -96,4 +96,16 @@ def DDBL():
             
         with st.expander("visualisations"):
             telemetry()
-            st.write("")
+            st.markdown("""
+            This is a plot I made that is able to show the telemetry of different laps. With this I can compare the best lap to other laps to see where time is lost and won. The user is able to select the laps he wants to see by clicking on the legend to the side. This plot is one of the best ways for drivers and their teams to see their track performance time wise. 
+            """)
+            st.empty()
+            corners()
+            st.markdown("""
+            This plot is a variation on the firts plot. In this one I mapped out the corners that required heavy to medium breaking. This way I could see the difference between those and where I was losing or winning times over different laps.
+            """)
+            st.empty()
+            spainMap()
+            st.markdown("""
+            This last plot shows the different lines driven on the track. Combined with the other plots the driver can work out which lines or winning or losing him lap time.
+            """)

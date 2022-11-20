@@ -6,19 +6,39 @@ import plotly.express as px
 
 url = "https://raw.githubusercontent.com/Jordds/portfolio/main/Spanje%20Jordi.csv"
 laps = pd.read_csv(url, sep = '\t', index_col=None)
-laps = laps[['carId','trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'fuel']]
-laps = laps[laps['lap_number'] > 0]
+laps = laps[['carId','trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'fuel', 'world_position_X', 'world_position_Y','world_position_Z']]
+#laps = laps[laps['lap_number'] > 0]
 laps['velocity_X'] = laps['velocity_X'] * 3.6
 laps['binDistance'] = 1 # every bin is 1 meter on track, to get the total track this needs to be summed to a total
 laps['totalDistance'] = laps['binDistance'].cumsum() / 1000
 laps['Time'] = pd.to_datetime(laps.lap_time, unit='s').dt.time.astype(str).str[3:]
-laps = laps[['carId', 'trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'Time', 'fuel', 'totalDistance']]
+laps = laps[['carId', 'trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'Time', 'fuel', 'totalDistance', 'world_position_X', 'world_position_Y','world_position_Z']]
 
 def telemetry():
-    fig = px.line(laps, x="binIndex", y="velocity_X", color='lap_number')
+    tel = laps[laps['lap_number'] > 0]
+    fig = px.line(tel
+                  , x="lap_time", y="velocity_X", color='lap_number')
+    fig.update_layout(
+        width=1100,
+        height=1000,
+        autosize=False,
+        margin=dict(t=0, b=0, l=0, r=0),
+        template="plotly_white",
+    )
+    fig.update_scenes(
+        aspectratio=dict(x=1, y=1, z=0.7),
+        aspectmode="manual"
+    )
+
+    # Update remaining layout properties
+    fig.update_layout(
+        title_text="Highlight Clusters",
+        showlegend=True,
+    )
     st.plotly_chart(fig, use_container_width=True)
     
-def corners():    
+def corners():
+    corner = laps[laps['lap_number'] > 0]
     bocht1 = [dict(type='square',
                  xref='x', yref='y',
                  x0=750, y0=0,
@@ -84,7 +104,7 @@ def corners():
                      fillcolor='#835AF1')]
 
 
-    fig = px.line(laps, x="binIndex", y="velocity_X", color='lap_number')
+    fig = px.line(corner, x="binIndex", y="velocity_X", color='lap_number')
     fig.update_layout(
         width=1100,
         height=1000,
@@ -144,4 +164,8 @@ def corners():
     )
 
     #fig.show()
+    st.plotly_chart(fig, use_container_width=True)
+    
+def spainMap():
+    fig = px.line_3d(laps, x="world_position_X", y="world_position_Y", z="world_position_Z", color = 'lap_number', hover_data=['velocity_X'])
     st.plotly_chart(fig, use_container_width=True)
