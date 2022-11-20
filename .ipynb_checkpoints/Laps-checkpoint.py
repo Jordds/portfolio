@@ -1,10 +1,7 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import datetime
 import streamlit as st
-from bokeh.plotting import figure
 import plotly.express as px
 
 url = "https://raw.githubusercontent.com/Jordds/portfolio/main/Spanje%20Jordi.csv"
