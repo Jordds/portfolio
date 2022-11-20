@@ -14,9 +14,16 @@ laps['totalDistance'] = laps['binDistance'].cumsum() / 1000
 laps['Time'] = pd.to_datetime(laps.lap_time, unit='s').dt.time.astype(str).str[3:]
 laps = laps[['carId', 'trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'Time', 'fuel', 'totalDistance', 'world_position_X', 'world_position_Y','world_position_Z']]
 
+def maxTime():
+    time = laps[laps['lap_number'].between(0,4)]
+    time = time.groupby('lap_number')['lap_time'].max()
+    st.dataframe(time.to_frame().style.highlight_min(axis=0))
+    
+    #st.dataframe(time)
 def telemetry():
     tel = laps[laps['lap_number'] > 0]
-    fig = px.line(tel, x="lap_time", y="velocity_X", color='lap_number')
+    fig = px.line(tel
+                  , x="lap_time", y="velocity_X", color='lap_number')
     fig.update_layout(
         width=1100,
         height=1000,
