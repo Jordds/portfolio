@@ -1,26 +1,21 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-from sem3 import Sem3
 
+from sem3 import Sem3
+from AIspec import AI
+from Stage import stage
+from ddbl import DDBL
 # %%
       
         
-# %%        
-def AI():
-    st.header("AI Specialisatie")
+
     
-# %%    
-def stage():
-    st.header("Stage")
-    
+
 # %%    
 def sem6():
     st.header("Semester 6")
-    
-# %%    
-def DDBL():
-    st.header("Data driven business lab")
+
 
 # %%
 def work():
@@ -29,9 +24,17 @@ def work():
 # %%
 def aboutMe():
     st.header("About me")
+    
+# %%
+def home():
+    st.header("Welcome!")
+# %%
+def cv():
+    st.header("CV")
 #%%
 with st.sidebar:
-    options= st.selectbox('Projects',options=['Semester 3','AI specialisatie', 'Stage', 'Semester 6', 'DDBL Minor', 'Work experience', 'About me'])
+    options= st.radio('Select an option',options=['Home','Semester 3','AI specialisatie', 'Stage', 'Semester 6', 'DDBL Minor', 'Work experience', 'About me'])
+
     
 if options == 'AI specialisatie':
     AI()
@@ -47,3 +50,7 @@ elif options == 'Work experience':
     work()
 elif options == 'About me':
     aboutMe()
+elif options == 'Home':
+    home()
+elif options == 'cv':
+    cv()
