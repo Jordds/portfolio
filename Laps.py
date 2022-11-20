@@ -7,7 +7,8 @@ import streamlit as st
 from bokeh.plotting import figure
 import plotly.express as px
 
-laps = pd.read_csv("OneDrive/Documents/GitHub/portfolio/Spanje Jordi.csv", sep = '\t', index_col=None)
+url = "https://raw.githubusercontent.com/Jordds/portfolio/main/Spanje%20Jordi.csv"
+laps = pd.read_csv(url, sep = '\t', index_col=None)
 laps = laps[['carId','trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'fuel']]
 laps = laps[laps['lap_number'] > 0]
 laps['velocity_X'] = laps['velocity_X'] * 3.6
@@ -20,7 +21,7 @@ def telemetry():
     fig = px.line(laps, x="binIndex", y="velocity_X", color='lap_number')
     st.plotly_chart(fig, use_container_width=True)
     
-def corners(laps):    
+def corners():    
     bocht1 = [dict(type='square',
                  xref='x', yref='y',
                  x0=750, y0=0,
