@@ -34,7 +34,7 @@ def Sem3():
         
         Think of prices changing over time, with window functions we can group all prices based on groups  analyse the price increase and decrease over time for specific groups.    
         """)
-        wf = "https://github.com/Jordds/portfolio/blob/main/powerBISem3.png?raw=true"
+        wf = "https://github.com/Jordds/portfolio/blob/main/window%20function%20example.png?raw=true"
         st.image(wf, caption="Window function example")
 #%% Power BI
     with st.expander("Power BI"):
@@ -52,5 +52,5 @@ def Sem3():
         
         At the end of the semester we had a personal project that required to source our own data, clean and combine datasets and lastly apply statics and regression on that cleaned data. The below picture shows a plot I made in my personal semester project regarding regression: 
         """)
-        st.image("https://github.com/Jordds/portfolio/blob/main/powerBISem3.png?raw=true", caption="multiple regression plot")
+        st.image("https://github.com/Jordds/portfolio/blob/main/regression.png?raw=true", caption="multiple regression plot")
     
