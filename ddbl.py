@@ -31,6 +31,7 @@ def DDBL():
             
         with st.expander("visualisations"):
             st.write("These are some of the visualisations I worked on during the semester. This data is stored in DuckDB, which is accessed during the loading in of the data.")
+            """
             con = duckdb.connect(database= 'OneDrive/Documents/GitHub/portfolio/my-db.duckdb', read_only=False)
             df = con.execute("select lon, lat from dust GROUP BY lon, lat").df()
             df2 = con.execute("select Date, lon, lat, AVG(pm10) as pm10, AVG(pm25) as pm25 from fijnstof GROUP BY lon, lat, Date").df()
@@ -81,6 +82,7 @@ def DDBL():
             ))
             avgPM = px.bar(df3, x='hour', y='pm10', color='Date', pattern_shape='Lon',barmode='group', width = 10)
             st.plotly_chart(avgPM, use_container_width=True)
+            """
 
 
 

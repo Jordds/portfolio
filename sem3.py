@@ -34,7 +34,7 @@ def Sem3():
         
         Think of prices changing over time, with window functions we can group all prices based on groups  analyse the price increase and decrease over time for specific groups.    
         """)
-        wf = "OneDrive/Documents/GitHub/portfolio/window function example.png"
+        wf = "https://github.com/Jordds/portfolio/blob/main/powerBISem3.png?raw=true"
         st.image(wf, caption="Window function example")
 #%% Power BI
     with st.expander("Power BI"):
