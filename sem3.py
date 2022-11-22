@@ -41,7 +41,7 @@ def Sem3():
         st.write("This was my first experience with Power BI. During the semster we learned about dimensional model, DAX and building visuals in Power BI. This knowledge was applied in our semester project, for which we build a Like4Like dashboard comparing clothing stores accross the world, with mulitple filter options for the end user.")
         st.image("https://github.com/Jordds/portfolio/blob/main/powerBISem3.png?raw=true", caption="Plainwear Like4Like dashboard")
         st.markdown("""
-        This is a screenshot of the dashboard I came up with for my semester project. Ib the background, a Like4Like classification was made, so the stores shown would be an equal comparison. 
+        This is a screenshot of the dashboard I came up with for my semester project. In the background, a Like4Like classification was made, so the stores shown would be an equal comparison. 
         
         The user is able in this dashboard to see Year over Year charts, this means that the moment of the current year is being compared to the same month af last year. On top of that the user can select countries, streets and date to slice through the visual as they need. 
         """)

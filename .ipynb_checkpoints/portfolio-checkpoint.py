@@ -26,17 +26,30 @@ def aboutMe():
     st.header("About me")
     
 # %%
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+local_css("https://raw.githubusercontent.com/Jordds/portfolio/main/style/style.css")
+#local_css("OneDrive/Documents/GitHub/portfolio/style/style.css")
+
+
 def home():
     st.header("Welcome!")
     st.subheader("I'm Jordi and I like to work with data")
     st.markdown("""
-    I decided to make this, to be able to not just tell you about the stuff I did but show some of it as well. It gives a small peak off projects I have worked on, some of the results and the scope of my education. This app itself is also part of my learning growth, it allowed me to learn another way to make data accesable to the public through Python. 
+    I decided to make this, to be able to not just tell you about the stuff I did but show some of it as well. It gives a small peak off projects I have worked on, some of the results and the scope of my education. This app itself is also part of my learning growth, it allowed me to learn another way to make data accesable to the public through Python, building a small web app and adding features to it. 
     """)
     st.header(":mailbox: Get in contact with me!")
+    st.markdown(
+    """
+    Feel free to contact me with any questions!
+    """)
     contact_form = """
     <form action="https://formsubmit.co/jordivanbelzen@live.nl" method="POST">
-     <input type="text" name="name" required>
-     <input type="email" name="email" required>
+     <input type="hidden" name="_captcha" value="false">
+     <input type="text" name="name" placeholder="Your name" required>
+     <input type="email" name="email" placeholder="Your email" required>
+     <textarea name="message" placeholder="Your message here"></textarea>
      <button type="submit">Send</button>
 </form>
     """
