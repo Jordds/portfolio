@@ -27,10 +27,15 @@ def DDBL():
             st.write("")
             
         with st.expander("building the backend and cleaning data"):
-            st.write("d")
+            st.markdown("""
+            I cleaned the data with a Python script. The different CSV's we got are loaded in and mulitple steps for each are taken to clean them. In the end we end up with 3 cleaned datasets, which are loaded into a DuckDB file to do analysis on in Python. Using pandas dataframes for this was not feasable. 
+            
+           The dataframes are also exported to new CSV's, which then are run through an Azure pipeline to be stored in a cloud database. This is done for the people in our group that are using Power BI insteas of Python. This way they can connect to this database and work in Power BI with the cleaned data. 
+            """)
             
         with st.expander("visualisations"):
             st.write("These are some of the visualisations I worked on during the semester. This data is stored in DuckDB, which is accessed during the loading in of the data.")
+            #%% werkt niet in GitHub
             """
             con = duckdb.connect(database= 'OneDrive/Documents/GitHub/portfolio/my-db.duckdb', read_only=False)
             df = con.execute("select lon, lat from dust GROUP BY lon, lat").df()
@@ -82,8 +87,9 @@ def DDBL():
             ))
             avgPM = px.bar(df3, x='hour', y='pm10', color='Date', pattern_shape='Lon',barmode='group', width = 10)
             st.plotly_chart(avgPM, use_container_width=True)
-            """
-
+           """
+            url = "https://i.imgur.com/ekVO3dv.png"
+            st.image(url, caption="Screenshot of the map visualisation (placeholder till DuckDB works")
 
 
         

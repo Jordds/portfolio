@@ -28,6 +28,19 @@ def aboutMe():
 # %%
 def home():
     st.header("Welcome!")
+    st.subheader("I'm Jordi and I like to work with data")
+    st.markdown("""
+    I decided to make this, to be able to not just tell you about the stuff I did but show some of it as well. It gives a small peak off projects I have worked on, some of the results and the scope of my education. This app itself is also part of my learning growth, it allowed me to learn another way to make data accesable to the public through Python. 
+    """)
+    st.header(":mailbox: Get in contact with me!")
+    contact_form = """
+    <form action="https://formsubmit.co/jordivanbelzen@live.nl" method="POST">
+     <input type="text" name="name" required>
+     <input type="email" name="email" required>
+     <button type="submit">Send</button>
+</form>
+    """
+    st.markdown(contact_form, unsafe_allow_html = True)
 # %%
 def cv():
     st.header("CV")
