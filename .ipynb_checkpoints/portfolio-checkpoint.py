@@ -29,8 +29,8 @@ def aboutMe():
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-#local_css("https://raw.githubusercontent.com/Jordds/portfolio/main/style/style.css")
-local_css("OneDrive/Documents/GitHub/portfolio/style/style.css")
+local_css("https://raw.githubusercontent.com/Jordds/portfolio/main/style/style.css")
+#local_css("OneDrive/Documents/GitHub/portfolio/style/style.css")
 
 
 def home():
