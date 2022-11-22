@@ -14,12 +14,17 @@ laps['totalDistance'] = laps['binDistance'].cumsum() / 1000
 laps['Time'] = pd.to_datetime(laps.lap_time, unit='s').dt.time.astype(str).str[3:]
 laps = laps[['carId', 'trackId', 'binIndex', 'lap_number', 'lap_distance', 'velocity_X', 'lap_time', 'Time', 'fuel', 'totalDistance', 'world_position_X', 'world_position_Y','world_position_Z']]
 
+
+@st.experimental_memo
 def maxTime():
     time = laps[laps['lap_number'].between(0,4)]
     time = time.groupby('lap_number')['lap_time'].max()
     st.dataframe(time.to_frame().style.highlight_min(axis=0))
-    
+    return time
+
     #st.dataframe(time)
+    
+@st.experimental_memo
 def telemetry():
     tel = laps[laps['lap_number'] > 0]
     fig = px.line(tel
@@ -42,7 +47,9 @@ def telemetry():
         showlegend=True,
     )
     st.plotly_chart(fig, use_container_width=True)
-    
+    return fig
+
+@st.experimental_memo
 def corners():
     corner = laps[laps['lap_number'] > 0]
     bocht1 = [dict(type='square',
@@ -171,7 +178,11 @@ def corners():
 
     #fig.show()
     st.plotly_chart(fig, use_container_width=True)
-    
+    return fig
+
+@st.experimental_memo
 def spainMap():
     fig = px.line_3d(laps, x="world_position_X", y="world_position_Y", z="world_position_Z", color = 'lap_number', hover_data=['velocity_X'])
     st.plotly_chart(fig, use_container_width=True)
+    return fig
+    

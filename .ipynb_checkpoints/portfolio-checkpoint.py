@@ -6,6 +6,7 @@ from sem3 import Sem3
 from AIspec import AI
 from Stage import stage
 from ddbl import DDBL
+from workExp import work
 # %%
       
         
@@ -18,8 +19,7 @@ def sem6():
 
 
 # %%
-def work():
-    st.header("Work experience")
+
 
 # %%
 def aboutMe():
@@ -77,6 +77,7 @@ def home():
 def cv():
     st.header("CV")
 #%%
+
 with st.sidebar:
     options= st.radio('Select an option',options=['Home','Semester 3','AI specialisatie', 'Stage', 'Semester 6', 'DDBL Minor', 'Work experience', 'About me'])
 
