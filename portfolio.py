@@ -26,12 +26,6 @@ def aboutMe():
     st.header("About me")
     
 # %%
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-#local_css("https://raw.githubusercontent.com/Jordds/portfolio/main/style.css")
-local_css("OneDrive/Documents/GitHub/portfolio/style.css")
-
 
 def home():
     st.header("Welcome!")
@@ -44,6 +38,31 @@ def home():
     """
     Feel free to contact me with any questions!
     """)
+    #inline css, can not access css file from github
+    st.markdown("""
+    <style> .input[type=text], input[type=email], textarea {
+      width: 100%; /* Full width */
+      padding: 12px; /* Some padding */ 
+      border: 1px solid #ccc; /* Gray border */
+      border-radius: 4px; /* Rounded borders */
+      box-sizing: border-box; /* Make sure that padding and width stays in place */
+      margin-top: 6px; /* Add a top margin */
+      margin-bottom: 16px; /* Bottom margin */
+      resize: vertical}
+      button[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button[type=submit]:hover {
+    background-color: #45a049;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
     contact_form = """
     <form action="https://formsubmit.co/jordivanbelzen@live.nl" method="POST">
      <input type="hidden" name="_captcha" value="false">
