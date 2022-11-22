@@ -40,12 +40,13 @@ def stage():
 
         This meant all that was left, was publishing the dashboard in the Power BI service, so the logistics department could start working with their new dashboard. 
         """)
-    with st.expander('Techniques learned'):
-        st.subheader('Techniques learned during internship')
-        st.markdown("""
-        - working with an ERP system (Isah)
-        - ETL and ELT processes
-        - BI specialist within a company 
-        - Advanced SQL
-        - Communication
-        """)
+#with st.expander('Techniques learned'):
+    st.subheader('Techniques learned during internship')
+    st.markdown("""
+    - working with an ERP system (Isah)
+    - ETL and ELT processes
+    - BI consultancy within a company
+    - Stakeholder management
+    - Advanced SQL
+    - Communication
+    """)

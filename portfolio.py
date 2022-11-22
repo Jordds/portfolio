@@ -8,11 +8,12 @@ from Stage import stage
 from ddbl import DDBL
 from workExp import work
 # %%
+st.set_page_config(
+    page_title="My portfolio",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
       
-        
-
-    
-
 # %%    
 def sem6():
     st.header("Semester 6")
